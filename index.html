@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculation</title>
+</head>
+<body>
+
+<script>
+// Function to calculate percentage
+function calculatePercentage(totalMarks, maxMarks) {
+    return (totalMarks / maxMarks) * 100;
+}
+
+// Function to take marks from the user
+function takeUserMarks() {
+    var totalMarks = 0;
+    var maxMarks = 500; // Assuming the maximum marks for each user is 100
+
+    for (var i = 1; i <= 5; i++) {
+        var userInput = prompt("Enter marks for user" + i);
+        var marks = parseFloat(userInput);
+
+        // Validate if the input is a valid number
+        if (!isNaN(marks)) {
+            totalMarks += marks;
+        } else {
+            alert("Invalid input. Please enter a valid number.");
+            i--; // Decrement the counter to re-enter marks for the current user
+        }
+    }
+
+    // Calculate percentage
+    var percentage = calculatePercentage(totalMarks, maxMarks);
+
+    // Display the result
+    alert("Total Marks: " + totalMarks + "\nPercentage: " + percentage.toFixed(2) + "%");
+}
+
+// Call the function to take user marks and display the result
+takeUserMarks();
+</script>
+
+</body>
+</html>
